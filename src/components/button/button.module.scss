@@ -1,0 +1,126 @@
+$animation: 2s linear infinite;
+
+$line1: linear-gradient(45deg, #219ebc, #ffb703);
+
+$line2: linear-gradient(45deg, #ffb703, #219ebc);
+
+$line3: linear-gradient(45deg, #8ac926, #621fc0,);
+
+$line4: linear-gradient(45deg,#621fc0, #8ac926);
+
+@mixin span {
+    width: 100%;
+    position: absolute;
+    display: block;
+    height: 1px;
+    background-color: transparent;
+}
+
+// --------------------------------------------------------------------------
+
+.inner {
+    margin: auto;
+    width: fit-content;
+}
+
+.button {
+    font-family: 'Josefin Slab', serif;
+    font-size: 1.5em;
+    letter-spacing: 4px;
+    background: none;
+    color: #95d6f1;
+    padding: 20px 35px;
+    border: 1px solid rgba(233, 224, 224, 0.377);
+    overflow: hidden;
+    border-radius: 2px;
+
+    &:hover {
+        transform: translateY(-5px);
+        transition: transform 0.5s ease-out;
+        background-color: #2e2e52;
+        color: #f4acb7;
+        font-size: 1.6em;
+        border: none;
+        
+        span:nth-of-type(1) {
+            @include span;
+            top: 0;
+            background: $line1;
+            animation: line1 $animation;
+        }
+
+        span:nth-of-type(2) {
+            @include span;
+            bottom: 0;
+            animation: line2 $animation;
+            animation-delay: 2s;
+        }
+
+        span:nth-of-type(3) {
+            @include span;
+            width: 1px;
+            height: 100%;
+            right: 0;
+            animation: line3 $animation;
+            animation-delay: 1s;
+        }
+
+        span:nth-of-type(4) {
+            @include span;
+            width: 1px;
+            height: 100%;
+            left: 0;
+            animation: line4 $animation;
+            animation-delay: 3s;
+        }
+    }
+}
+
+
+
+// -------------------------------------------------
+
+@keyframes line1 {
+    from {
+      left: -100%;
+    }
+    to {
+      left: 100%;
+    }
+}
+
+@keyframes line2 {
+    from {
+      right: -100%;
+      background: $line2;
+    }
+    to {
+      right: 100%;
+      background: $line2;
+    }
+}
+
+@keyframes line3 {
+    from {
+      top: -100%;
+      background: $line3;
+    }
+    to {
+      top: 100%;
+      background: $line3;
+    }
+}
+
+@keyframes line4 {
+    from {
+      top: 100%;
+      background: $line4;
+    }
+    to {
+      top: -100%;
+      background: $line4;
+    }
+}
+
+
+  

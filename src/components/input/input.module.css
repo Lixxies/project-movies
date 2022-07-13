@@ -1,0 +1,45 @@
+.inner {
+  margin: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: auto;
+}
+
+.input {
+  transform: translateY(160px);
+  width: 90%;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid #95d6f1;
+  outline: none;
+  color: #fff;
+  font-size: 1.5em;
+  font-family: "Josefin Slab", serif;
+}
+.input:focus {
+  border-bottom: 1px solid #f4acb7;
+  transition: all 0.3s ease-in;
+}
+.input::-moz-placeholder {
+  color: #e9ecef;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+.input:-ms-input-placeholder {
+  color: #e9ecef;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+.input::placeholder {
+  color: #e9ecef;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.searchIcon {
+  transform: translateY(160px);
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
+}/*# sourceMappingURL=input.module.css.map */

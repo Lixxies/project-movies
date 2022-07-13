@@ -1,0 +1,10 @@
+.inner {
+  height: 600px;
+  margin: auto;
+  padding: 0 25px 0 25px;
+}
+.inner iframe {
+  width: 100%;
+  margin-top: 25px;
+  height: 100%;
+}/*# sourceMappingURL=video.module.css.map */

@@ -1,0 +1,155 @@
+.inner {
+  margin: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.button {
+  font-family: "Josefin Slab", serif;
+  font-size: 1.5em;
+  letter-spacing: 4px;
+  background: none;
+  color: #95d6f1;
+  padding: 20px 35px;
+  border: 1px solid rgba(233, 224, 224, 0.377);
+  overflow: hidden;
+  border-radius: 2px;
+}
+.button:hover {
+  transform: translateY(-5px);
+  transition: transform 0.5s ease-out;
+  background-color: #2e2e52;
+  color: #f4acb7;
+  font-size: 1.6em;
+  border: none;
+}
+.button:hover span:nth-of-type(1) {
+  width: 100%;
+  position: absolute;
+  display: block;
+  height: 1px;
+  background-color: transparent;
+  top: 0;
+  background: linear-gradient(45deg, #219ebc, #ffb703);
+  -webkit-animation: line1 2s linear infinite;
+          animation: line1 2s linear infinite;
+}
+.button:hover span:nth-of-type(2) {
+  width: 100%;
+  position: absolute;
+  display: block;
+  height: 1px;
+  background-color: transparent;
+  bottom: 0;
+  -webkit-animation: line2 2s linear infinite;
+          animation: line2 2s linear infinite;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+}
+.button:hover span:nth-of-type(3) {
+  width: 100%;
+  position: absolute;
+  display: block;
+  height: 1px;
+  background-color: transparent;
+  width: 1px;
+  height: 100%;
+  right: 0;
+  -webkit-animation: line3 2s linear infinite;
+          animation: line3 2s linear infinite;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+.button:hover span:nth-of-type(4) {
+  width: 100%;
+  position: absolute;
+  display: block;
+  height: 1px;
+  background-color: transparent;
+  width: 1px;
+  height: 100%;
+  left: 0;
+  -webkit-animation: line4 2s linear infinite;
+          animation: line4 2s linear infinite;
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
+}
+
+@-webkit-keyframes line1 {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes line1 {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 100%;
+  }
+}
+@-webkit-keyframes line2 {
+  from {
+    right: -100%;
+    background: linear-gradient(45deg, #ffb703, #219ebc);
+  }
+  to {
+    right: 100%;
+    background: linear-gradient(45deg, #ffb703, #219ebc);
+  }
+}
+@keyframes line2 {
+  from {
+    right: -100%;
+    background: linear-gradient(45deg, #ffb703, #219ebc);
+  }
+  to {
+    right: 100%;
+    background: linear-gradient(45deg, #ffb703, #219ebc);
+  }
+}
+@-webkit-keyframes line3 {
+  from {
+    top: -100%;
+    background: linear-gradient(45deg, #8ac926, #621fc0);
+  }
+  to {
+    top: 100%;
+    background: linear-gradient(45deg, #8ac926, #621fc0);
+  }
+}
+@keyframes line3 {
+  from {
+    top: -100%;
+    background: linear-gradient(45deg, #8ac926, #621fc0);
+  }
+  to {
+    top: 100%;
+    background: linear-gradient(45deg, #8ac926, #621fc0);
+  }
+}
+@-webkit-keyframes line4 {
+  from {
+    top: 100%;
+    background: linear-gradient(45deg, #621fc0, #8ac926);
+  }
+  to {
+    top: -100%;
+    background: linear-gradient(45deg, #621fc0, #8ac926);
+  }
+}
+@keyframes line4 {
+  from {
+    top: 100%;
+    background: linear-gradient(45deg, #621fc0, #8ac926);
+  }
+  to {
+    top: -100%;
+    background: linear-gradient(45deg, #621fc0, #8ac926);
+  }
+}/*# sourceMappingURL=button.module.css.map */

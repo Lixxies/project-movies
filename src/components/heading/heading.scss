@@ -1,0 +1,14 @@
+.heading {
+    margin: auto;
+    width: fit-content;
+}
+
+h1 {
+    font-weight: 200;
+    font-size: 3em;
+    display: inline-block;
+}
+
+.camera {
+    transform: scale(2) rotate(40deg) translateX(8px);
+}
