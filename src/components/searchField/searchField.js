@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import Button from '../button/button';
 import Output from '../output/output';
+import LoadingAnimation from '../loadingAnimation/loadingAnimation';
 
 class SearchField extends React.Component {
 
@@ -13,7 +14,8 @@ class SearchField extends React.Component {
             input: "",
             render: false,
             data: "",
-            year: 0
+            year: 0,
+            loading: false
         }
 
         this.handleChange = this.handleChange.bind(this)
@@ -25,7 +27,11 @@ class SearchField extends React.Component {
         })
     }
 
-    handleClick() {
+   handleClick() {
+        this.setState({
+            loading: true
+        })
+
         let url = this.props.url + this.state.input
 
         axios(url)
@@ -37,7 +43,8 @@ class SearchField extends React.Component {
             this.setState({
                 render: true,
                 data: data,
-                year: year
+                year: year,
+                loading: false
             })
         })
 
@@ -61,6 +68,7 @@ class SearchField extends React.Component {
                         onChange={this.handleChange}
                     />
                     <Button txt="Find" onClick={() => this.handleClick()} />
+                    <LoadingAnimation loading={this.state.loading} />
                 </div>
                 <Output 
                     render={this.state.render}

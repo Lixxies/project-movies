@@ -1,0 +1,108 @@
+@mixin animation {
+	animation: flash 1.2s ease-in infinite;
+}
+
+$trSc: translateY(15px) scale(1.5);
+
+
+.outerLoad {
+    display: flex;
+    justify-content: center;
+    transform: translateY(70px);
+}
+
+.innerLoad {
+
+    svg {
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        transform-origin: top left;
+	
+        &:nth-of-type(1) {
+            transform: $trSc;
+            @include animation;
+            animation-delay: -1.1s;
+        }
+        
+        &:nth-of-type(2) {
+            transform: rotate(30deg) $trSc;
+            @include animation;
+            animation-delay: -1s;
+        }
+        
+        &:nth-of-type(3) {
+            transform: rotate(60deg) $trSc;
+            @include animation;
+            animation-delay: -0.9s;
+        }
+        
+        &:nth-of-type(4) {
+            transform: rotate(90deg) $trSc;
+            @include animation;
+            animation-delay: -0.8s;
+        }
+        
+        &:nth-of-type(5) {
+            transform: rotate(120deg) $trSc;
+            @include animation;
+            animation-delay: -0.7s;
+        }
+        
+        &:nth-of-type(6) {
+            transform: rotate(150deg) $trSc;
+            @include animation;
+            animation-delay: -0.6s;
+        }
+        
+        &:nth-of-type(7) {
+            transform: rotate(180deg) $trSc;
+            @include animation;
+            animation-delay: -0.5s;
+        }
+        
+        &:nth-of-type(8) {
+            transform: rotate(210deg) $trSc;
+            @include animation;
+            animation-delay: -0.4s;
+        }
+        
+        &:nth-of-type(9) {
+            transform: rotate(240deg) $trSc;
+            @include animation;
+            animation-delay: -0.3s;
+        }
+        
+        &:nth-of-type(10) {
+            transform: rotate(270deg) $trSc; 
+            @include animation;
+            animation-delay: -0.2s;
+        }
+        
+        &:nth-of-type(11) {
+            transform: rotate(300deg) $trSc;
+            @include animation;
+            animation-delay: -0.1s;
+        }
+        
+        &:nth-of-type(12) {
+            transform: rotate(330deg) $trSc;
+            @include animation;
+        }
+    }
+}
+
+line {
+ stroke-width: 2;
+ stroke: #0077b6;
+}
+
+
+@keyframes flash {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}

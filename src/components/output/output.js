@@ -4,27 +4,31 @@ import axios from 'axios';
 
 import Button from '../button/button';
 import Video from '../video/video';
+import LoadingAnimation from '../loadingAnimation/loadingAnimation';
 
 class Output extends React.Component {
    constructor(props) {
       super(props)
       this.state = {
          trailer: "",
-         showTrailer: false
+         showTrailer: false,
+         loading: false
       }
    }
 
    handleClick() {
       this.setState({
-               showTrailer: true
+               loading: true
             })
+            
       let url = this.props.trailer + this.props.data.id
 
       axios(url)
       .then((resp) => {
          this.setState({
             trailer: resp.data.linkEmbed,
-            showTrailer: true
+            showTrailer: true,
+            loading: false
          })
       })
    }
@@ -36,14 +40,14 @@ class Output extends React.Component {
             <div className={styles.inner}>
                <div className={styles.img}>
                   <img src={this.props.data.image} alt="Poster"/>
-                  
                </div>
                <div className={styles.info}>
                      <div>{this.props.data.title}</div>
                      <div>{this.props.year}</div>
                      <div className={styles.button}>
-                     <Button txt="Trailer" onClick={() => this.handleClick()}/>
-                     </div>
+                        <Button txt="Trailer" onClick={() => this.handleClick()}/>
+                        <LoadingAnimation loading={this.state.loading} />
+                     </div>  
                </div>
                <Video 
                   trailer={this.state.trailer}
