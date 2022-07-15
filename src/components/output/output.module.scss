@@ -12,6 +12,11 @@
     padding-top: 50px;
     flex-wrap: wrap;
     justify-content: center;
+
+    .nthn {
+        font-size: 2em;
+        transform: translateY(100px);
+    }
 }
 
 .img {
@@ -38,10 +43,8 @@
 }
 
 .button {
-   
     margin-top: 50px;
 }
-
 
 //-------------------------------------
 
@@ -76,5 +79,11 @@
 @media (max-width: 900px) {
     .img img {
         height: 350px;
+    }
+
+    .inner {
+        .nthn {
+            font-size: 1.5em;
+        }
     }
 }

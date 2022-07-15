@@ -1,0 +1,35 @@
+$anm: fade 0.9s ease-in-out infinite alternate;
+
+.dot {
+    display: inline-block;
+    border: 1px #fff solid;
+    background-color: #fff;
+    border-radius: 50%;
+    width: 6px;
+    height: 6px;
+    margin-left: 10px;
+
+    &:nth-of-type(1) {
+        animation: $anm;
+        animation-delay:  0.3s;
+    }
+    
+    &:nth-of-type(2) {
+        animation: $anm;
+        animation-delay: 0.6s;
+    }
+    
+    &:nth-of-type(3) {
+        animation: $anm;
+        animation-delay: 0.9s;
+    }
+}
+
+@keyframes fade {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}

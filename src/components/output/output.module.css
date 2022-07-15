@@ -4,6 +4,10 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+.inner .nthn {
+  font-size: 2em;
+  transform: translateY(100px);
+}
 
 .img {
   width: 50%;
@@ -58,5 +62,8 @@
 @media (max-width: 900px) {
   .img img {
     height: 350px;
+  }
+  .inner .nthn {
+    font-size: 1.5em;
   }
 }/*# sourceMappingURL=output.module.css.map */

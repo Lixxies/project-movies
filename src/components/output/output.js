@@ -5,6 +5,7 @@ import axios from 'axios';
 import Button from '../button/button';
 import Video from '../video/video';
 import LoadingAnimation from '../loadingAnimation/loadingAnimation';
+import Dot from '../dot/dot';
 
 class Output extends React.Component {
    constructor(props) {
@@ -34,7 +35,6 @@ class Output extends React.Component {
    }
 
    render() {
-
       if (this.props.render) {
          return (
             <div className={styles.inner}>
@@ -57,6 +57,16 @@ class Output extends React.Component {
             </div>
          )
       }
+      return (
+         <div className={styles.inner}>
+            <div className={styles.nthn}>
+               Nothing is there yet
+               <Dot />
+               <Dot />
+               <Dot />
+            </div>
+         </div>
+      )
    }
 }
 
