@@ -75,6 +75,7 @@ class SearchField extends React.Component {
                     trailer={this.props.trailer}
                     data={this.state.data}
                     year={this.state.year}
+                    size={this.props.size}
                 />
             </div>
             

@@ -10,7 +10,8 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            class: ""
+            class: "",
+            size: "640"
         }
 
         this.BASE_URL = 'https://imdb-api.com/en/API/';
@@ -29,9 +30,26 @@ class App extends React.Component {
             })
         } 
     }
+
+    handleResize() {
+        if (window.innerWidth < 1500 && window.innerWidth > 1000) {
+           this.setState({
+              size: "440"
+           })
+        } else if (window.innerWidth < 1000) {
+           this.setState({
+              size: "380"
+           })
+        } else {
+           this.setState({
+              size: "640"
+           })
+        }
+     }
     
     componentDidMount() {
         window.addEventListener("scroll", () => this.handleScroll())
+        window.addEventListener("resize", () => this.handleResize())
     }
 
     render() {
@@ -45,6 +63,7 @@ class App extends React.Component {
                         placeholder="Enter a title (year is optional)" 
                         url={ `${this.BASE_URL}SearchMovie/${this.key}/` }
                         trailer={this.trailer_url}
+                        size={this.state.size}
                     />
                 </div>
 
@@ -54,6 +73,7 @@ class App extends React.Component {
                         placeholder="Enter a title (year is optional)" 
                         url={ `${this.BASE_URL}SearchSeries/${this.key}/` }
                         trailer={this.trailer_url}
+                        size={this.state.size}
                     />
                 </div>
             </div>
