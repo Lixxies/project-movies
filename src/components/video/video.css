@@ -3,23 +3,18 @@
 }
 
 iframe {
-  height: 360px;
-  width: 540px;
+  height: 500px;
+  width: 640px;
 }
 
-@media (max-width: 1150px) {
+@media (max-width: 1500px) {
   iframe {
     width: 440px;
-    height: 260px;
+    height: 360px;
   }
 }
-@media (max-width: 950px) {
+@media (max-width: 1000px) {
   iframe {
-    width: 400px;
-  }
-}
-@media (max-width: 850px) {
-  iframe {
-    width: 340px;
+    width: 380px;
   }
 }/*# sourceMappingURL=video.css.map */

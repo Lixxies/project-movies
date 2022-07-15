@@ -12,8 +12,29 @@ class Output extends React.Component {
       this.state = {
          trailer: "",
          showTrailer: false,
-         loading: false
+         loading: false,
+         size: "640"
       }
+   }
+
+   handleResize() {
+      if (window.innerWidth < 1500 && window.innerWidth > 1000) {
+         this.setState({
+            size: "440"
+         })
+      } else if (window.innerWidth < 1000) {
+         this.setState({
+            size: "380"
+         })
+      } else {
+         this.setState({
+            size: "640"
+         })
+      }
+   }
+
+   componentDidMount() {
+      window.addEventListener("resize", () => this.handleResize())
    }
 
    handleClick() {
@@ -52,6 +73,7 @@ class Output extends React.Component {
                <Video 
                   trailer={this.state.trailer}
                   showTrailer={this.state.showTrailer} 
+                  size={this.state.size}
                />
             </div>
          )
