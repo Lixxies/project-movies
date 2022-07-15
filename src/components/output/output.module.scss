@@ -1,15 +1,17 @@
 @mixin div {
     display: inline-block;
-    margin-top: 25px;
     font-size: 2em;
     font-weight: bolder;
     letter-spacing: 5px;
+    text-align: center;
+    margin-top: 50px;
 }
 
 .inner {
-    width: 100%;
-    padding: 50px 20px 0 20px;
-    box-sizing: border-box;
+    display: flex;
+    padding-top: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .img {
@@ -17,25 +19,62 @@
     display: inline-block;
 
     img {
-        width: 350px;
-        height: 450px;
+        padding-left: 20px;
+        width: 90%;
+        height: 550px;
     }
 }
 
 .info {
     width: 50%;
-    height: 450px;
     display: inline-flex;
     flex-direction: column;
-    vertical-align: 24em;
+    align-items: center;
+
+    & > div:nth-of-type(-n+2) {
+        @include div;
+    }
+
 }
 
-.info > div:nth-of-type(-n+2) {
-    @include div;
-  }
-
 .button {
-    width: fit-content;
+   
     margin-top: 50px;
 }
 
+
+//-------------------------------------
+
+@media (max-width: 1600px) {
+
+    .info > div:nth-of-type(1) {
+            width: 50%;
+        }
+
+        .img img {
+            height: 500px;
+        }  
+}
+
+@media (max-width: 1400px) {
+
+    .img img {
+        height: 400px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .img {
+        width: 65%;
+    }
+
+    .inner {
+        padding-left: 0;
+    }
+}
+
+@media (max-width: 900px) {
+    .img img {
+        height: 350px;
+    }
+}

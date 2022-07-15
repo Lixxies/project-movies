@@ -1,10 +1,10 @@
-import styles from './video.module.css'
+import './video.css'
 
 function Video(props) {
     if (props.showTrailer) {
         return (
-            <div className={styles.inner}>
-                <iframe title="Trailer" src={`${props.trailer}?autoplay=false`} allowFullScreen={true} mozallowfullscreen="true" webkitallowfullscreen="true" frameborder="no" scrolling="no"></iframe>
+            <div className="innerVid">
+                <iframe title="Trailer" src={`${props.trailer}?autoplay=false&width=540`} allowFullScreen={true} mozallowfullscreen="true" webkitallowfullscreen="true" frameBorder="no" scrolling="no"></iframe>
             </div>
         )
     }
