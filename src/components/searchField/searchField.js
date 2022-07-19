@@ -15,7 +15,8 @@ class SearchField extends React.Component {
             render: false,
             data: "",
             year: 0,
-            loading: false
+            loading: false,
+            list: false
         }
 
         this.handleChange = this.handleChange.bind(this)
@@ -27,7 +28,7 @@ class SearchField extends React.Component {
         })
     }
 
-   handleClick() {
+   handleClickSearch() {
         this.setState({
             loading: true
         })
@@ -41,13 +42,31 @@ class SearchField extends React.Component {
             let year = parseInt(desc)
 
             this.setState({
-                render: true,
                 data: data,
                 year: year,
+                render: true,
                 loading: false
             })
         })
 
+    }
+
+    handleClickList() {
+        this.setState({
+            loading: true
+        })
+
+        let url = this.props.top
+
+        axios(url)
+        .then((resp) => {
+            let data = resp.data.items
+            this.setState({
+                data: data,
+                list: true,
+                loading: false
+            })
+        })
     }
 
     render() {
@@ -67,7 +86,10 @@ class SearchField extends React.Component {
                         placeholder={this.props.placeholder}
                         onChange={this.handleChange}
                     />
-                    <Button txt="Find" onClick={() => this.handleClick()} />
+                    <div className={styles.button}>
+                        <Button txt="Search" onClick={() => this.handleClickSearch()} />
+                        <Button txt="Top 250" onClick={() => this.handleClickList()} />
+                    </div>
                     <LoadingAnimation loading={this.state.loading} />
                 </div>
                 <Output 
@@ -76,6 +98,7 @@ class SearchField extends React.Component {
                     data={this.state.data}
                     year={this.state.year}
                     size={this.props.size}
+                    list={this.state.list}
                 />
             </div>
             

@@ -1,0 +1,58 @@
+.inner {
+    display: flex;
+    padding-top: 50px;
+}
+
+.image {
+    padding-left: 20px;
+    width: fit-content
+}
+
+.info {
+    padding: 0 20px 0 20px;
+    font-size: 1.5em;
+
+    .title {
+        font-weight: bold;
+    }
+
+    .rank {
+            font-size: 2em;
+            color: #95d6f1;
+        }
+
+    .year {
+        margin-top: 20px;
+    
+        &::before {
+            content: "Year:";
+            margin-right: 20px;
+            color: #95d6f1;
+        }
+    }
+
+    .rating {
+        margin-top: 20px;
+
+        &::before {
+            content: "IMDb Rating:";
+            margin-right: 20px;
+            color: #95d6f1;
+        }
+    }
+}
+
+//----------------------------------
+
+@media (max-width: 1000px) {
+    .info {
+       .rank {
+            font-size: 1.5em;
+        } 
+    }
+}
+@media (max-width: 850px) {
+    .info {
+       font-size: 1.1em;
+    }
+}

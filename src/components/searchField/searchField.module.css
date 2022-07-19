@@ -35,6 +35,11 @@
   letter-spacing: 2px;
 }
 
+.button {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .searchIcon {
   display: inline-block;
   vertical-align: middle;
@@ -50,9 +55,22 @@
   .inner {
     width: 360px;
   }
+  .input {
+    font-size: 1.3em;
+  }
 }
 @media (max-width: 800px) {
   .inner {
     width: 260px;
+  }
+  .input {
+    font-size: 1em;
+  }
+  .button {
+    flex-direction: column;
+    align-items: center;
+  }
+  .button div:nth-of-type(1) {
+    margin-bottom: 25px;
   }
 }/*# sourceMappingURL=searchField.module.css.map */

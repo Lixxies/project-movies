@@ -19,17 +19,17 @@ $line4: linear-gradient(45deg,#621fc0, #8ac926);
 // --------------------------------------------------------------------------
 
 .inner {
-    margin: auto;
     width: fit-content;
 }
 
 .button {
     font-family: 'Josefin Slab', serif;
+    width: 6em;
+    height: 3em;
     font-size: 1.5em;
     letter-spacing: 4px;
     background: none;
     color: #95d6f1;
-    padding: 20px 35px;
     border: 1px solid #e9e0e060;
     overflow: hidden;
     border-radius: 2px;

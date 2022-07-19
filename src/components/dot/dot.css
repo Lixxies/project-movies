@@ -3,8 +3,8 @@
   border: 1px #fff solid;
   background-color: #fff;
   border-radius: 50%;
-  width: 6px;
-  height: 6px;
+  width: 4px;
+  height: 4px;
   margin-left: 10px;
 }
 .dot:nth-of-type(1) {

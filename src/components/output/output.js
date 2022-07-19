@@ -6,6 +6,7 @@ import Button from '../button/button';
 import Video from '../video/video';
 import LoadingAnimation from '../loadingAnimation/loadingAnimation';
 import Dot from '../dot/dot';
+import Top250List from '../top250List/top250List';
 
 class Output extends React.Component {
    constructor(props) {
@@ -39,7 +40,7 @@ class Output extends React.Component {
          return (
             <div className={styles.inner}>
                <div className={styles.img}>
-                  <img src={this.props.data.image} alt="Poster"/>
+                  <img src={this.props.data.image} alt="Poster" />
                </div>
                <div className={styles.info}>
                      <div>{this.props.data.title}</div>
@@ -55,6 +56,12 @@ class Output extends React.Component {
                   size={this.props.size}
                />
             </div>
+         )
+      } else if (this.props.list) {
+         return (
+            <Top250List 
+               data={this.props.data}
+            />
          )
       }
       return (

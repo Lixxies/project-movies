@@ -16,7 +16,9 @@ class App extends React.Component {
 
         this.BASE_URL = 'https://imdb-api.com/en/API/';
         this.key = 'k_znqhoxi4';
-        this.trailer_url = this.BASE_URL + `Trailer/${this.key}/`
+        this.trailer_url = this.BASE_URL + `Trailer/${this.key}/`;
+        this.topM = this.BASE_URL + `Top250Movies/${this.key}`;
+        this.topS = this.BASE_URL + `Top250TVs/${this.key}`;
     }
 
     handleScroll() {
@@ -53,6 +55,8 @@ class App extends React.Component {
     }
 
     render() {
+        const placeholder = "Enter a title (year is optional)"
+
        return (
         <div id='main'>
             <Nav class={this.state.class}/>
@@ -60,20 +64,22 @@ class App extends React.Component {
                 <div className='half'>
                     <Heading title="Movies" />
                     <SearchField
-                        placeholder="Enter a title (year is optional)" 
+                        placeholder={placeholder} 
                         url={ `${this.BASE_URL}SearchMovie/${this.key}/` }
                         trailer={this.trailer_url}
                         size={this.state.size}
+                        top={this.topM}
                     />
                 </div>
 
                 <div className='half'>
                     <Heading title="Series" />
                     <SearchField 
-                        placeholder="Enter a title (year is optional)" 
+                        placeholder={placeholder} 
                         url={ `${this.BASE_URL}SearchSeries/${this.key}/` }
                         trailer={this.trailer_url}
                         size={this.state.size}
+                        top={this.topS}
                     />
                 </div>
             </div>
