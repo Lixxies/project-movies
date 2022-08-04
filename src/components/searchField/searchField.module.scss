@@ -7,37 +7,13 @@
     width: 550px;
 }
 
-.input {
-    width: 90%;
-    margin: 30px 0 50px 0;
-    background-color: transparent;
-    border: 0;
-    border-bottom: 1px solid #95d6f1;
-    outline: none;
-    color: #fff;
-    font-size: 1.5em;
-    font-family: 'Josefin Slab', serif;
-
-    &:focus {
-        border-bottom: 1px solid #f4acb7;
-        transition: all 0.3s ease-in;
-    }
-
-    &::placeholder {
-        color: #e9ecef;
-        letter-spacing: 2px;
-    }
-}
-
-.button {
+.buttonDiv {
     display: flex;
     justify-content: space-evenly;
-}
 
-.searchIcon {
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 5px;
+    & + div {
+        
+    }
 }
 
 //-------------------------------------------------

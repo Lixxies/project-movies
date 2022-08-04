@@ -5,7 +5,7 @@ function Nav(props) {
         <header>
             <nav className={props.class}>
                 <a href="/#">HOME</a>
-                <span>FAQ</span>
+                <span tabIndex="0">FAQ</span>
             </nav>
         </header>
     )

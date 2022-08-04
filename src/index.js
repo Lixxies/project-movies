@@ -11,7 +11,7 @@ class App extends React.Component {
         super(props);
         this.state = {
             class: "",
-            size: "640"
+            size: "440"
         }
 
         this.BASE_URL = 'https://imdb-api.com/en/API/';
@@ -34,17 +34,13 @@ class App extends React.Component {
     }
 
     handleResize() {
-        if (window.innerWidth < 1500 && window.innerWidth > 1000) {
-           this.setState({
-              size: "440"
-           })
-        } else if (window.innerWidth < 1000) {
+        if (window.innerWidth < 1000) {
            this.setState({
               size: "380"
            })
         } else {
            this.setState({
-              size: "640"
+              size: "440"
            })
         }
      }
@@ -58,10 +54,10 @@ class App extends React.Component {
         const placeholder = "Enter a title (year is optional)"
 
        return (
-        <div id='main'>
+        <div id="main">
             <Nav class={this.state.class}/>
-            <div className='inner'>
-                <div className='half'>
+            <div className="inner">
+                <div className="half">
                     <Heading title="Movies" />
                     <SearchField
                         placeholder={placeholder} 
@@ -72,7 +68,7 @@ class App extends React.Component {
                     />
                 </div>
 
-                <div className='half'>
+                <div className="half">
                     <Heading title="Series" />
                     <SearchField 
                         placeholder={placeholder} 

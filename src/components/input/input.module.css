@@ -7,8 +7,8 @@
 }
 
 .input {
-  transform: translateY(160px);
   width: 90%;
+  margin: 30px 0 50px 0;
   background-color: transparent;
   border: 0;
   border-bottom: 1px solid #95d6f1;
@@ -24,21 +24,17 @@
 .input::-moz-placeholder {
   color: #e9ecef;
   letter-spacing: 2px;
-  text-transform: capitalize;
 }
 .input:-ms-input-placeholder {
   color: #e9ecef;
   letter-spacing: 2px;
-  text-transform: capitalize;
 }
 .input::placeholder {
   color: #e9ecef;
   letter-spacing: 2px;
-  text-transform: capitalize;
 }
 
 .searchIcon {
-  transform: translateY(160px);
   display: inline-block;
   vertical-align: middle;
   margin-right: 5px;

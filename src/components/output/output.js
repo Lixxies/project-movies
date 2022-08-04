@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './output.module.css';
 import axios from 'axios';
 
@@ -8,59 +8,63 @@ import LoadingAnimation from '../loadingAnimation/loadingAnimation';
 import Dot from '../dot/dot';
 import Top250List from '../top250List/top250List';
 
-class Output extends React.Component {
-   constructor(props) {
-      super(props)
-      this.state = {
-         trailer: "",
-         showTrailer: false,
-         loading: false
-      }
-   }
+function SearchOutput(props) {
+   return (
+      <div className={styles.inner}>
+            <div className={styles.img}>
+               <img src={props.data.image} alt="Poster" />
+            </div>
+            <div className={styles.info}>
+               <div>{props.data.title}</div>
+               <div>{props.year}</div>
+               <div className={styles.button}>
+                     <Button txt="Trailer" onClick={() => props.onClick()}/>
+                     <LoadingAnimation loading={props.loading} />
+               </div>  
+               <Video 
+                  trailer={props.trailer}
+                  showTrailer={props.showTrailer} 
+                  size={props.size}
+               />
+            </div>
+      </div>
+   )
+}
 
-   handleClick() {
-      this.setState({
-               loading: true
-            })
+function Output(props) {
+   const [trailer, setTrailer] = useState("")
+   const [showTrailer, setshowTrailer] = useState(false)
+   const [loading, setLoading] = useState(false)
+
+   const handleClick = () => {
+      setLoading(true)
             
-      let url = this.props.trailer + this.props.data.id
+      let url = props.trailer + props.data.id
 
       axios(url)
       .then((resp) => {
-         this.setState({
-            trailer: resp.data.linkEmbed,
-            showTrailer: true,
-            loading: false
-         })
+         setTrailer(resp.data.linkEmbed)
+         setshowTrailer(true)
+         setLoading(false)
       })
    }
 
-   render() {
-      if (this.props.render) {
+      if (props.render) {
          return (
-            <div className={styles.inner}>
-               <div className={styles.img}>
-                  <img src={this.props.data.image} alt="Poster" />
-               </div>
-               <div className={styles.info}>
-                     <div>{this.props.data.title}</div>
-                     <div>{this.props.year}</div>
-                     <div className={styles.button}>
-                        <Button txt="Trailer" onClick={() => this.handleClick()}/>
-                        <LoadingAnimation loading={this.state.loading} />
-                     </div>  
-               </div>
-               <Video 
-                  trailer={this.state.trailer}
-                  showTrailer={this.state.showTrailer} 
-                  size={this.props.size}
-               />
-            </div>
+            <SearchOutput 
+               data={props.data}
+               year={props.year}
+               size={props.size}
+               trailer={trailer}
+               showTrailer={showTrailer}
+               loading={loading}
+               onClick={handleClick}
+            />
          )
-      } else if (this.props.list) {
+      } else if (props.list) {
          return (
             <Top250List 
-               data={this.props.data}
+               data={props.data}
             />
          )
       }
@@ -74,7 +78,6 @@ class Output extends React.Component {
             </div>
          </div>
       )
-   }
 }
 
 export default Output

@@ -13,7 +13,8 @@ function Input (props) {
                 <input type="text" name="input" id="input" size="50" autoComplete="off"
                     className={styles.input}
                     placeholder={props.placeholder}
-                    onChange={() => props.onChange()} 
+                    onChange={props.onChange} 
+                    onKeyDown={props.onKeyDown}
                 />
         </div>
     )

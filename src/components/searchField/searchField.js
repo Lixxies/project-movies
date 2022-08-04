@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './searchField.module.css';
 import axios from 'axios';
 
+import Input from '../input/input'
 import Button from '../button/button';
 import Output from '../output/output';
 import LoadingAnimation from '../loadingAnimation/loadingAnimation';
@@ -20,6 +21,7 @@ class SearchField extends React.Component {
         }
 
         this.handleChange = this.handleChange.bind(this)
+        this.handleKeyDown = this.handleKeyDown.bind(this)
     }
 
     handleChange(event) {
@@ -29,30 +31,39 @@ class SearchField extends React.Component {
     }
 
    handleClickSearch() {
-        this.setState({
-            loading: true
-        })
-
-        let url = this.props.url + this.state.input
-
-        axios(url)
-        .then((resp) => {
-            let data = resp.data.results[0]
-            let desc = data.description.replace(")", "").replace("(", "")
-            let year = parseInt(desc)
-
+        if (this.state.input) {
             this.setState({
-                data: data,
-                year: year,
-                render: true,
-                loading: false
+                list: false,
+                loading: true
             })
-        })
 
+            let url = this.props.url + this.state.input
+
+            axios(url)
+            .then((resp) => {
+                let data = resp.data.results[0]
+                let desc = data.description.replace(")", "").replace("(", "")
+                let year = parseInt(desc)
+
+                this.setState({
+                    data: data,
+                    year: year,
+                    render: true,
+                    loading: false
+                })
+            })
+        }   
+    }
+
+    handleKeyDown(event) {
+        if (event.key == "Enter" && this.state.input) {
+            return this.handleClickSearch()
+        }
     }
 
     handleClickList() {
         this.setState({
+            render: false,
             loading: true
         })
 
@@ -74,19 +85,12 @@ class SearchField extends React.Component {
         return (
             <div className={styles.outer}>
                 <div className={styles.inner}>
-                    <div className={styles.searchIcon}>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
-                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                        </svg>
-                    </div>
-
-                    <label htmlFor="input"></label>
-                    <input type="text" name="input" id="input" size="50" autoComplete="off"
-                        className={styles.input}
+                    <Input
                         placeholder={this.props.placeholder}
                         onChange={this.handleChange}
+                        onKeyDown={this.handleKeyDown}
                     />
-                    <div className={styles.button}>
+                    <div className={styles.buttonDiv}>
                         <Button txt="Search" onClick={() => this.handleClickSearch()} />
                         <Button txt="Top 250" onClick={() => this.handleClickList()} />
                     </div>

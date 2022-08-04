@@ -3,8 +3,8 @@
 }
 
 iframe {
-  height: 500px;
-  width: 640px;
+  height: 300px;
+  width: 440px;
 }
 
 @media (max-width: 1500px) {
