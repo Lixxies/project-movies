@@ -7,14 +7,9 @@ iframe {
   width: 440px;
 }
 
-@media (max-width: 1500px) {
+@media (max-width: 1700px) {
   iframe {
-    width: 440px;
-    height: 360px;
-  }
-}
-@media (max-width: 1000px) {
-  iframe {
-    width: 380px;
+    width: 400px;
+    height: 300px;
   }
 }/*# sourceMappingURL=video.css.map */

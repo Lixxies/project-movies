@@ -41,6 +41,7 @@ $line4: linear-gradient(45deg,#621fc0, #8ac926);
         color: #f4acb7;
         font-size: 1.6em;
         border: none;
+        cursor: pointer;
         
         span:nth-of-type(1) {
             @include span;

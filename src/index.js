@@ -34,7 +34,9 @@ class App extends React.Component {
     }
 
     handleResize() {
-        if (window.innerWidth < 1000) {
+        const el = document.documentElement
+
+        if (el.clientWidth <= 1700) {
            this.setState({
               size: "380"
            })
@@ -43,6 +45,7 @@ class App extends React.Component {
               size: "440"
            })
         }
+        
      }
     
     componentDidMount() {
